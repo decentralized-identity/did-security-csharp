@@ -102,20 +102,41 @@ namespace did_security_csharp
         /// <returns>Converted array</returns>
         private byte[] ConvertToBigEndian(byte[] toConvert, int wantedSize)
         {
-            int toConvertInx = toConvert.Length - 1;
-            if (toConvert.Length > wantedSize)
+            try
             {
-                toConvertInx = toConvert.Length - (toConvert.Length - wantedSize) - 1;
-            }
+                byte[] bigEndian = new byte[wantedSize];
 
-            // We skip the sign byte
-            byte[] bigEndian = new byte[wantedSize];
-            for (int convertedInx = 0; convertedInx < wantedSize; convertedInx++, toConvertInx--)
+                int toConvertInx = toConvert.Length - 1;
+                if (toConvert.Length > wantedSize)
+                {
+                    toConvertInx = toConvert.Length - (toConvert.Length - wantedSize) - 1;
+                }
+                else if (toConvert.Length < wantedSize)
+                {
+                    bigEndian = new byte[toConvert.Length];
+                    wantedSize = toConvert.Length;
+                }
+
+               
+                for (int convertedInx = 0; convertedInx < wantedSize; convertedInx++, toConvertInx--)
+                {
+                    if (convertedInx >= toConvert.Length)
+                    {
+                        bigEndian[convertedInx] = 0;
+                    }
+                    else
+                    {
+                        bigEndian[convertedInx] = toConvert[toConvertInx];
+                    }
+                }
+
+                return bigEndian;
+            }
+            catch (Exception e)
             {
-                bigEndian[convertedInx] = toConvert[toConvertInx];
+                Console.WriteLine(e);
+                throw;
             }
-
-            return bigEndian;
         }
 
         private string ToBase64Url(byte[] toConvert)

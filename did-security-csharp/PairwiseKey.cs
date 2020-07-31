@@ -279,7 +279,7 @@ namespace did_security_csharp
 
             // Initialize the keyed hash object.
             byte[] hashValue = null;
-            using (HMACSHA256 hmac = new HMACSHA256(didMasterKey))
+            using (HMACSHA512 hmac = new HMACSHA512(didMasterKey))
             {
                 hashValue = hmac.ComputeHash(peerId);
             }

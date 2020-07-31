@@ -1,9 +1,0 @@
-C:\did1\did-security-csharp\did-security-csharp\bin\Debug\netstandard2.0\did-security-csharp.deps.json
-C:\did1\did-security-csharp\did-security-csharp\bin\Debug\netstandard2.0\did-security-csharp.dll
-C:\did1\did-security-csharp\did-security-csharp\obj\Debug\netstandard2.0\did-security-csharp.csprojAssemblyReference.cache
-C:\did1\did-security-csharp\did-security-csharp\obj\Debug\netstandard2.0\did-security-csharp.csproj.CoreCompileInputs.cache
-C:\did1\did-security-csharp\did-security-csharp\obj\Debug\netstandard2.0\did-security-csharp.AssemblyInfoInputs.cache
-C:\did1\did-security-csharp\did-security-csharp\obj\Debug\netstandard2.0\did-security-csharp.AssemblyInfo.cs
-C:\did1\did-security-csharp\did-security-csharp\bin\Debug\netstandard2.0\did-security-csharp.pdb
-C:\did1\did-security-csharp\did-security-csharp\obj\Debug\netstandard2.0\did-security-csharp.dll
-C:\did1\did-security-csharp\did-security-csharp\obj\Debug\netstandard2.0\did-security-csharp.pdb

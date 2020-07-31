@@ -64,27 +64,6 @@ namespace did_security_csharp
         /// <returns>DID master key</returns>
         private byte[] generateDidMasterKey(byte[] seed, string did, string peerId)
         {
-            byte[] didBytes = Encoding.UTF8.GetBytes(did);
-
-            // Initialize the keyed hash object.
-            byte[] hashValue = null;
-            using (HMACSHA512 hmac = new HMACSHA512(seed))
-            {
-                hashValue = hmac.ComputeHash(didBytes);
-            }
-
-            return hashValue;
-        }
-
-        /// <summary>
-        /// Generate the EC master key.
-        /// </summary>
-        /// <param name="seed">Seed for the generating DID master keys.</param>
-        /// <param name="did">The DID</param>
-        /// <param name="peerId">The peer id</param>
-        /// <returns>DID master key</returns>
-        private byte[] generateDidMasterKeyEc(byte[] seed, string did, string peerId)
-        {
             byte[] didBytes = Encoding.UTF8.GetBytes(did + "signature");
 
             // Initialize the keyed hash object.
@@ -293,7 +272,7 @@ namespace did_security_csharp
         private object generateEcPairwiseKey(byte[] seed)
         {
             // Generate DID master key
-            byte[] didMasterKey = this.generateDidMasterKeyEc(seed, this.Did, this.PeerId);
+            byte[] didMasterKey = this.generateDidMasterKey(seed, this.Did, this.PeerId);
 
             // Generate peer key
             byte[] peerId = Encoding.UTF8.GetBytes(this.PeerId);
